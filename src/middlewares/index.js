@@ -1,5 +1,6 @@
-const { validateCreateUser } = require("./user.middleware");
+const { validateCreateUser, validateUpdateUser } = require("./user.middleware");
 
 module.exports = {
   validateCreateUser,
+  validateUpdateUser,
 };

@@ -27,7 +27,32 @@ const createUser = async (req, res, next) => {
   }
 };
 
+const updateUser = async (req, res, next) => {
+  const { userId } = req.params;
+  const updateUser = req.body;
+  try {
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: userId },
+      { $set: { ...updateUser } }
+    );
+    if (updatedUser === null) {
+      res.status(404).json({
+        status: 404,
+        message: "Action failed. ID not found, the user does not exist",
+      });
+    } else {
+      res.status(200).json({
+        status: 200,
+        message: "Successful action. The user has been updated",
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   getAllUsers,
   createUser,
+  updateUser,
 };

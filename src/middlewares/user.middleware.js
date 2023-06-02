@@ -16,4 +16,12 @@ const createUserSchema = Joi.object({
   role: Joi.number().positive().required(),
 });
 
+const updateUserSchema = Joi.object({
+  name: Joi.string().optional(),
+  email: Joi.string().optional(),
+  password: Joi.string().optional(),
+  role: Joi.number().positive().optional(),
+}).min(1);
+
 exports.validateCreateUser = validate(createUserSchema);
+exports.validateUpdateUser = validate(updateUserSchema);
