@@ -4,6 +4,7 @@ const mongooseConnection = require("./utils/mongoose");
 const { User } = require("./routes");
 
 const app = express();
+app.use(express.json());
 app.use("/", User);
 
 const start = async () => {
