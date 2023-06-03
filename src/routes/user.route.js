@@ -15,5 +15,6 @@ userRouter.patch(
   validateUpdateUser,
   User.updateUser
 );
+userRouter.delete(`${USER_URL_BASE}/:userId`, User.deleteUser);
 
 module.exports = userRouter;

@@ -17,7 +17,7 @@ const getOneUser = async (req, res, next) => {
   const { userId } = req.params;
   try {
     const oneUser = await User.find({ _id: userId });
-    if (User.length === 0) {
+    if (oneUser.length === 0) {
       res.status(404).json({
         status: 404,
         message: "Action failed. ID not found, the user does not exist",
@@ -72,9 +72,30 @@ const updateUser = async (req, res, next) => {
   }
 };
 
+const deleteUser = async (req, res, next) => {
+  const { userId } = req.params;
+  try {
+    const deletedUser = await User.findByIdAndRemove(userId);
+    if (deletedUser === null) {
+      res.status(404).json({
+        status: 404,
+        message: "Action failed. ID not found, the user does not exist",
+      });
+    } else {
+      res.status(200).json({
+        status: 200,
+        message: "Successful action. The user has been deleted",
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   getAllUsers,
   getOneUser,
   createUser,
   updateUser,
+  deleteUser,
 };
