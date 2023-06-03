@@ -50,11 +50,11 @@ const createUser = async (req, res, next) => {
 
 const updateUser = async (req, res, next) => {
   const { userId } = req.params;
-  const updateUser = req.body;
+  const updateInfo = req.body;
   try {
     const updatedUser = await User.findOneAndUpdate(
       { _id: userId },
-      { $set: { ...updateUser } }
+      { $set: { ...updateInfo } }
     );
     if (updatedUser === null) {
       res.status(404).json({
