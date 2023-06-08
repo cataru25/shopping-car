@@ -4,8 +4,6 @@ const { User } = require("../models/user.model");
 const login = async (req, res, next) => {
   const loginInfo = req.body;
   const { email, password } = loginInfo;
-  console.log("@typeof email: ", typeof email);
-  console.log("@typeof password: ", typeof password);
 
   try {
     if (email === undefined || email === null || email === "") {

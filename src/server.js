@@ -2,12 +2,16 @@ require("dotenv").config();
 const express = require("express");
 const mongooseConnection = require("./utils/mongoose");
 const { User, Product, Auth } = require("./routes");
+const { errorHandler, notFoundHandler } = require("./middlewares");
 
 const app = express();
 app.use(express.json());
 app.use("/", User);
 app.use("/", Product);
 app.use("/", Auth);
+
+app.use(errorHandler);
+app.use(notFoundHandler);
 
 const start = async () => {
   try {
