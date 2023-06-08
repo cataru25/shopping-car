@@ -1,12 +1,13 @@
 require("dotenv").config();
 const express = require("express");
 const mongooseConnection = require("./utils/mongoose");
-const { User, Product } = require("./routes");
+const { User, Product, Auth } = require("./routes");
 
 const app = express();
 app.use(express.json());
 app.use("/", User);
 app.use("/", Product);
+app.use("/", Auth);
 
 const start = async () => {
   try {
