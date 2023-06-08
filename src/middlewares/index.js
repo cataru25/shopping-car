@@ -1,12 +1,15 @@
-const { validateCreateUser, validateUpdateUser } = require("./user.middleware");
+const { errorHandler, notFoundHandler } = require("./error.handler");
+const { validateCreateUser, validateUpdateUser } = require("./user.handler");
 const {
   validateCreateProduct,
   validateUpdateProduct,
-} = require("./product.middleware");
+} = require("./product.handler");
 
 module.exports = {
   validateCreateUser,
   validateUpdateUser,
   validateCreateProduct,
   validateUpdateProduct,
+  errorHandler,
+  notFoundHandler,
 };
