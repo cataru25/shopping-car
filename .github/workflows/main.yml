@@ -21,9 +21,5 @@ jobs:
           version: 18.x
         
       - name: Install
-        #run: npm ci --silent
-        run: |
-          npm ci --silent
-          exit 1
-
+        run: npm ci --silent
   
