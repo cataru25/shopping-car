@@ -31,6 +31,6 @@ jobs:
         with:
           name: build
           path: |
-            src/*.js
+            src/*js
             !node_modules
   
