@@ -3,9 +3,9 @@ const jwt = require("jsonwebtoken");
 exports.isAuth = (role) => {
   if (!role) {
     return (req, res, next) => {
-      const tokenJwt = req.headers.authorization;
+      const token = req.headers.authorization;
       try {
-        let decodeToken = jwt.verify(tokenJwt, process.env.TOKEN_SECRET);
+        let decodeToken = jwt.verify(token, process.env.TOKEN_SECRET);
 
         if (decodeToken.role) {
           next();
@@ -23,9 +23,9 @@ exports.isAuth = (role) => {
     };
   }
   return (req, res, next) => {
-    const tokenJwt = req.headers.authorization;
+    const token = req.headers.authorization;
     try {
-      let decodeToken = jwt.verify(tokenJwt, process.env.TOKEN_SECRET);
+      let decodeToken = jwt.verify(token, process.env.TOKEN_SECRET);
 
       if (decodeToken.role === role) {
         next();
