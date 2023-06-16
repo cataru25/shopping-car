@@ -1,6 +1,7 @@
 const { healthCheck, welcomePage } = require("./app.controller");
 const User = require("./user.controller");
 const Product = require("./product.controller");
+const Car = require("./car.controller");
 const Auth = require("./auth.controller");
 
 module.exports = {
@@ -8,5 +9,6 @@ module.exports = {
   welcomePage,
   User,
   Product,
+  Car,
   Auth,
 };
