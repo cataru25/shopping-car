@@ -24,27 +24,21 @@ Before running this project, make sure you have the following installed in your 
 Follow these steps to set up and run the project:
 
 1. Clone this repository to your local machine.
-```shell
 git clone https://github.com/your-username/shopping-cart.git
-```shell
 
 2. Open a terminal and navigate to the project directory.
-```shell
 cd shopping-cart
 
 3. Run the following command to install the dependencies:
-```shell
 npm install
 
 4. Create a .env file in the project's root directory and provide the following configuration.
-```shell
 DB_CONNECTION_STRING=<mongodb_connection_string>
 SESSION_SECRET=<session_secret>
 
 Make sure to replace <mongodb_connection_string> with your own MongoDB connection string and <session_secret> with an alphanumeric string for the session.
 
 5. Start the application.
-```shell
 npm start
 
 6. Open your web browser and visit http://localhost:3000 to access the shopping cart.
@@ -55,13 +49,10 @@ If you would like to contribute to this project, you can follow these steps:
 
 1. Fork this repository.
 2. Create a branch for the new feature:
-```shell
 git checkout -b new-feature
 3. Make your changes and commit:
-```shell
 git commit -m "Add new feature"
 4. Push your changes to the remote repository:
-```shell
 git push origin new-feature
 5. Open a Pull Request on this repository.
 
