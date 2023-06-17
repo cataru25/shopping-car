@@ -126,7 +126,8 @@ const deleteProductFromCar = async (req, res, next) => {
     } else {
       res.status(200).json({
         status: 200,
-        message: "Successful action. The quantity has been deleted",
+        message:
+          "Successful action. The product has been deleted from the shopping car",
         data: deletedProduct,
       });
     }
