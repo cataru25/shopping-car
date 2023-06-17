@@ -1,5 +1,6 @@
 const { Car } = require("../models/car.model");
 const { Order } = require("../models/order.model");
+const { Product } = require("../models/product.model");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 
@@ -59,6 +60,18 @@ const addOrder = async (req, res, next) => {
       message: "Successful action. The order has been created.",
       data: order,
     });
+    if (order) {
+      carList.forEach(async (itemList) => {
+        productInfo = await Product.find({ _id: itemList.productId });
+        let stock = productInfo[0].quantity - itemList.quantity;
+        await Product.findOneAndUpdate(
+          { _id: itemList.productId },
+          { $set: { quantity: stock } }
+        );
+      });
+    }
+
+    await Car.deleteMany({ userId: userId });
   } catch (error) {
     next(error);
   }
