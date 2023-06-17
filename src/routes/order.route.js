@@ -9,6 +9,6 @@ orderRouter.get("/", welcomePage);
 orderRouter.get("/health", healthCheck);
 
 orderRouter.get(ORDER_URL_BASE, isAuth(1), Order.getAllOrders);
-orderRouter.post(ORDER_URL_BASE, isAuth(1), Order.addOrder);
+orderRouter.post(ORDER_URL_BASE, Order.addOrder);
 
 module.exports = orderRouter;

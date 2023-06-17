@@ -57,12 +57,11 @@ const addToCar = async (req, res, next) => {
   }
   try {
     const { userId } = jwt.verify(token, process.env.TOKEN_SECRET);
-    const productAlreadyExists = await Car.find({ productId: productId });
-    const addingProduct = {
-      userId: userId,
-      productId: productId,
-      quantity: quantity,
-    };
+    const filterByUser = await Car.find({ userId: userId });
+    const productAlreadyExists = filterByUser.filter(
+      (product) => product.productId == productId
+    );
+
     if (productAlreadyExists.length !== 0) {
       res.status(401).json({
         status: 401,
@@ -70,12 +69,17 @@ const addToCar = async (req, res, next) => {
           "Action denied. The product alredy exists and it cannot be added again.",
       });
     } else {
-      await Car.create(addingProduct);
+      const addingProduct = {
+        userId: userId,
+        productId: productId,
+        quantity: quantity,
+      };
+      const updatedCar = await Car.create(addingProduct);
       res.status(201).json({
         status: 201,
         message:
           "Successful action. The product has been added to the shopping car",
-        data: addingProduct,
+        data: updatedCar,
       });
     }
   } catch (error) {
