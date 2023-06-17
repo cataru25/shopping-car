@@ -43,6 +43,10 @@ npm start
 
 6. Open your web browser and visit http://localhost:3000 to access the shopping cart.
 
+## Deploy
+
+The shopping car was deployed using Render. Take a look at this url: https://wwcode-shopping-car.onrender.com/
+
 ## Contributing
 
 If you would like to contribute to this project, you can follow these steps:
