@@ -26,6 +26,7 @@ Follow these steps to set up and run the project:
 1. Clone this repository to your local machine.
 ```shell
 git clone https://github.com/your-username/shopping-cart.git
+```shell
 
 2. Open a terminal and navigate to the project directory.
 ```shell
