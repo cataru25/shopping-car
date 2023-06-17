@@ -17,16 +17,21 @@ const getAllProducts = async (req, res, next) => {
         },
       },
       {
+        $unwind: "$products",
+      },
+      {
         $project: {
           userId: 1,
           productId: 1,
           quantity: 1,
+          products: { name: 1, quantity: 1, price: 1 },
         },
       },
     ]);
     res.status(200).json({
       status: 200,
-      message: "The list of products of the specified user has been obtained",
+      message:
+        "Successful action. The list of products of the specified user has been obtained",
       data: carList,
     });
   } catch (error) {

@@ -3,6 +3,7 @@ const User = require("./user.controller");
 const Product = require("./product.controller");
 const Car = require("./car.controller");
 const Auth = require("./auth.controller");
+const Order = require("./order.controller");
 
 module.exports = {
   healthCheck,
@@ -11,4 +12,5 @@ module.exports = {
   Product,
   Car,
   Auth,
+  Order,
 };

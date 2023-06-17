@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongooseConnection = require("./utils/mongoose");
-const { User, Product, Car, Auth } = require("./routes");
+const { User, Product, Car, Auth, Order } = require("./routes");
 const { errorHandler, notFoundHandler } = require("./middlewares");
 
 const app = express();
@@ -10,6 +10,7 @@ app.use("/", User);
 app.use("/", Product);
 app.use("/", Car);
 app.use("/", Auth);
+app.use("/", Order);
 
 app.use(errorHandler);
 app.use(notFoundHandler);
