@@ -1,4 +1,4 @@
-# shopping-cart
+# shopping-car
 The back-end of an online store made with express and mongoose
 
 This is a shopping cart project developed using Node.js, Express, and Mongoose. The main goal of this project is to provide a basic solution for managing a shopping cart in a web application.
